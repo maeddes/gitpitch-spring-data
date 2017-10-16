@@ -291,8 +291,16 @@ spring.datasource.password=matthias
 
 ### Options for spring.jpa.hibernate.ddl-auto
 
-validate: validate the schema, makes no changes to the database.
-update: update the schema.
-create: creates the schema, destroying previous data.
-create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+- validate: validate the schema, makes no changes to the database.
+- update: update the schema.
+- create: creates the schema, destroying previous data.
+- create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
 
+---
+
+# Extensions
+
++++
+
+- Use PagingAndSortingRepository
+- Add starter dependency and annotation for Data Rest Repositories

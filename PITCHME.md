@@ -12,7 +12,7 @@
 
 ### Creating an entity
 
-```
+```java
 @Entity
 class Greeting{
 
@@ -24,6 +24,11 @@ class Greeting{
 
 	public Greeting(){} // Why, JPA, Why?
 
+```
+
++++
+
+```java
 	public Greeting(String greeting){
 
 		this.greeting = greeting;
@@ -42,8 +47,7 @@ class Greeting{
 
 +++
 
-```
-
+```java
 	@Override
 	public String toString() {
 		return "Greeting{" +
@@ -68,7 +72,7 @@ class Greeting{
 
 ### Creating a CRUD repository
 
-```
+```java
 interface GreetingRepository extends CrudRepository<Greeting, Long> {
 
 }
@@ -78,15 +82,17 @@ interface GreetingRepository extends CrudRepository<Greeting, Long> {
 
 ### Alternatively use a PagingAndSortingRepository
 
-```
+```java
 interface GreetingRepository extends PagingAndSortingRepository<Greeting, Long> {
 
 }
 ```
 
++++
+
 ### Interacting with the repository
 
-```
+```java
 @Autowired
 GreetingRepository greetingRepository;
 ```
@@ -99,7 +105,7 @@ GreetingRepository greetingRepository;
 
 ### READ Operation
 
-```
+```java
 @GetMapping("/readAll")
 String readAll(){
 
@@ -112,7 +118,7 @@ String readAll(){
 
 ### DELETE Operation
 
-```
+```java
 @DeleteMapping("/deleteAll")
 String deleteAll(){
 	
@@ -126,7 +132,7 @@ String deleteAll(){
 
 ### CREATE Operation
 
-```
+```java
 @PostMapping("/add/{greeting}")
 String create(@PathVariable String greeting){
 
@@ -144,7 +150,7 @@ String create(@PathVariable String greeting){
 
 ### Pulling the MySQL image
 
-```
+```bash
 $ docker run mysql
 Unable to find image 'mysql:latest' locally
 latest: Pulling from library/mysql
@@ -161,7 +167,7 @@ latest: Pulling from library/mysql
 
 ### Running the MySQL container (easy)
 
-```
+```bash
 $ docker run --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_USER=matthias -e MYSQL_PASSWORD=matthias -d mysql
 ```
 
@@ -169,7 +175,7 @@ $ docker run --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYS
 
 ### Running the MySQL container (properly)
 
-```
+```bash
 $  docker run --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql
 c08307a68e95067dc5db02b98197ecc8eb40be8d508c8058383f0f8078c29235
 ```
@@ -178,7 +184,7 @@ c08307a68e95067dc5db02b98197ecc8eb40be8d508c8058383f0f8078c29235
 
 ### Connecting to the container
 
-```
+```bash
 $ docker exec -it mymysql bash
 the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
 
@@ -190,7 +196,7 @@ root@81e94de64c12:/###
 
 ### Login to MySQL
 
-```
+```bash
 root@81e94de64c12:/### mysql -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -212,7 +218,7 @@ mysql>
 
 ### Creating the database
 
-```
+```bash
 mysql> create database mydb;
 Query OK, 1 row affected (0.00 sec)
 
@@ -224,11 +230,11 @@ mysql> grant all privileges on mydb.* to  'matthias'@'localhost';
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 ```
 
----
++++
 
 ### Validate
 
-```
+```bash
 mysql> show databases;
 +--------------------+
 | Database           |
@@ -242,7 +248,7 @@ mysql> show databases;
 5 rows in set (0.00 sec)
 ```
 
----
++++
 
 ### Validate grants
 

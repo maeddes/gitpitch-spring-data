@@ -88,6 +88,10 @@ interface GreetingRepository extends PagingAndSortingRepository<Greeting, Long> 
 }
 ```
 
+---
+
+# Operations
+
 +++
 
 ### Interacting with the repository
@@ -96,10 +100,6 @@ interface GreetingRepository extends PagingAndSortingRepository<Greeting, Long> 
 @Autowired
 GreetingRepository greetingRepository;
 ```
-
----
-
-# Operations
 
 +++
 
@@ -214,7 +214,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 ```
 
----
++++
 
 ### Creating the database
 

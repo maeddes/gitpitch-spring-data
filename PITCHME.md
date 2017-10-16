@@ -222,11 +222,11 @@ mysql>
 mysql> create database mydb;
 Query OK, 1 row affected (0.00 sec)
 
-mysql> create user 'matthias'@'localhost' identified by
+mysql> create user 'matthias'@'%' identified by
 'matthias';
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> grant all privileges on mydb.* to  'matthias'@'localhost';
+mysql> grant all privileges on mydb.* to  'matthias'@'%';
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 ```
 

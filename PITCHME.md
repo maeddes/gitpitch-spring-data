@@ -170,6 +170,7 @@ spring.datasource.url= jdbc:postgresql://localhost:5432/mydb
 spring.datasource.username=matthias
 spring.datasource.password=password
 ```
++++
 
 ### Pulling the MySQL image
 

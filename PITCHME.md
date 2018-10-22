@@ -148,6 +148,29 @@ String create(@PathVariable String greeting){
 
 +++
 
+### Postgres
+
+```bash
+$ docker run --name postgresdb -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=matthias -e POSTGRES_DB=mydb -d postgres:latest
+4cde6e20322e2d2ebf1cf117df862da17a30e3fad8c4bb3e73beee76078eaa4b
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+4cde6e20322e        postgres:latest     "docker-entrypoint.s…"   4 seconds ago       Up 3 seconds        0.0.0.0:5432->5432/tcp   postgresdb
+
+```
+
++++
+
+### application.properties
+
+```properties
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url= jdbc:postgresql://localhost:5432/mydb 
+spring.datasource.username=matthias
+spring.datasource.password=password
+```
+
 ### Pulling the MySQL image
 
 ```bash
